@@ -1,0 +1,7 @@
+Niveles capturados: 
+	 Calibre:2mm
+	 Forma:Antecedent: forma
+	 Firmeza de la pulpa:Antecedent: firmeza
+	 Cobertura de manchas:Antecedent: cobertura
+Comercialización:Consequent: calidad
+Número salida:16

@@ -1,0 +1,126 @@
+% Laboratorio N°1 de Lógica y Teoría de la Computación 2-2019
+% Autores: - Diego Águila
+%         - Carlos Alvarez
+%         - Alberto Rodríguez
+%         - Chun-Zen Yu
+
+% Declaración de hechos
+% p = porcentaje de caracteristica
+
+% Coloracion
+% coloracion_blanca(X,p)
+
+% exportable(X):=
+
+% fruta_comercial(X):=
+
+% desecho(X):=
+
+% coloracion_rosada(X,p)
+% coloracion_roja(X,p)
+% coloracion_negra(X,p)
+% coloracion_morada(X,p)
+% coloracion_burdeo(X,p)
+% Manchas
+% mancha_russet(X)
+% mancha_quemaduraSol(X)
+% Texturas
+
+% Calibre vs Diametros[mm]
+calibre(1,  18).
+calibre(2 , 19).
+calibre(3 , 20).
+calibre(4 , 21).
+calibre(5 , 22).
+calibre(6 , 23).
+calibre(7 , 24).
+calibre(8 , 25).
+calibre(9 , 26).
+calibre(10, 27).
+calibre(11, 28).
+calibre(12, 29).
+calibre(13, 30).
+calibre(14, 31).
+calibre(15, 32).
+
+% Definición de análisis de defectos
+
+% herida_cicatrizada(X):=
+
+% machucon(X):=
+
+% perforacion_cicatrizada(X):=
+
+% partidura_cicatrizada(X):=
+
+% fruto_gemelo(X):=
+
+% quemadura_solar(X):=
+
+% fruto_doble(X):=
+
+% sin_color(X):=
+
+% cicatriz(X):=
+
+% sin_pedunculo(X):=
+
+% magulladura(X):=
+
+% fruto_arrugado(X):=
+
+% medialuna(X):=
+
+% madurez_excesiva(X):=
+
+% defecto_abrasion(X):=
+
+% % Definición de análisis final de cerezas
+defecto("medialuna").
+defecto("pifia").
+
+
+% Funcion que recibe una lista y obtiene daño total e.g.
+% ["magullada",0.2, "fruto doble"]
+obtener_daño_total(_, [Defecto|_]) :-
+    [Defecto,[]].
+
+obtener_daño_total(DañoTotal, [Defecto|Cola]) :-
+    print(Defecto),
+    print(Cola),
+    print(DañoTotal),
+    DañoTotal = DañoTotal + 1,
+    obtener_daño_total(DañoTotal, Cola).
+
+% Funcion que obtiene el diametro maximo de todos los definidos en la
+% base de datos
+maximo_diametro_definido(Calibre, Diametro):-
+    calibre(Calibre, Diametro),
+    \+ (
+        calibre(Calibre2, Diametro2),
+        Calibre2 \= Calibre,
+        Diametro < Diametro2
+    ).
+
+asignar_calibre(Diametro, Calibre):-
+     calibre(Calibre, Diametro);
+     (
+         maximo_diametro_definido(Max_cal, Max_diam),
+         Diametro > Max_diam,
+         Calibre = Max_cal
+     );
+     Calibre = 16.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
